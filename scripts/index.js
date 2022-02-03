@@ -1,8 +1,8 @@
-let editButton = document.querySelector('.profile__bnt_action_edit');
-let saveButton = document.querySelector('.popup__bnt_action_save');
-let closeButton = document.querySelector('.popup__bnt_action_close');
-let popup = document.querySelector('.popup');
-let clikLikes = document.querySelectorAll('.card__like');
+const editButton = document.querySelector('.profile__bnt_action_edit');
+const popup = document.querySelector('.popup');
+const saveButton = popup.querySelector('.popup__bnt_action_save');
+const closeButton = popup.querySelector('.popup__bnt_action_close');
+const clikLikes = document.querySelectorAll('.card__like');
 
 
 
@@ -34,5 +34,15 @@ function saveEditForm() {
 function closeEditForm() {
     popup.classList.remove('popup_opened');
 }
+
+const closeEditFormByClickOnOverlay = function(event) {
+    
+    if(event.target !== event.currentTarget) {
+        return;
+    }
+    closeEditForm();
+}
+
+popup.addEventListener('click', closeEditFormByClickOnOverlay);
 
 
