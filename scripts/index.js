@@ -10,6 +10,7 @@ const editJob = document.querySelector('.popup__input_type_aboutMy');
 const formEditProfil = popup.querySelector('.popup__form');
 
 editButton.addEventListener('click', editProfile);
+
 closeButton.addEventListener('click', closeEditForm);
 
 function editProfile() {
@@ -39,6 +40,5 @@ const saveEditForm = function (event) {
 }
 
 popup.addEventListener('click', closeEditFormByClickOnOverlay);
+
 formEditProfil.addEventListener('submit', saveEditForm);
-
-
