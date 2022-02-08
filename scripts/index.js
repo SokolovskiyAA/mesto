@@ -3,46 +3,42 @@ const popup = document.querySelector('.popup');
 const saveButton = popup.querySelector('.popup__bnt_action_save');
 const closeButton = popup.querySelector('.popup__bnt_action_close');
 const clikLikes = document.querySelectorAll('.card__like');
-
-
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const editName = document.querySelector('.popup__input_type_name');
+const editJob = document.querySelector('.popup__input_type_aboutMy');
+const formEditProfil = popup.querySelector('.popup__form');
 
 editButton.addEventListener('click', editProfile);
-saveButton.addEventListener('click', saveEditForm);
 closeButton.addEventListener('click', closeEditForm);
-clikLikes.forEach(clikLike => {
-    clikLike.addEventListener('click', () => {
-        clikLike.classList.toggle('card__like_clik');
-    });
-});
 
 function editProfile() {
-    let name = document.querySelector('.profile__name');
-    let job = document.querySelector('.profile__job');
-    let editName = document.querySelector('.popup__input_type_name');
-    let editJob = document.querySelector('.popup__input_type_aboutMy');
-    editName.value = name.textContent;
-    editJob.value = job.textContent;
+    editName.value = profileName.textContent;
+    editJob.value = profileJob.textContent;
     popup.classList.add('popup_opened');
-}
-
-function saveEditForm() {
-    document.querySelector('.profile__name').textContent = document.querySelector('.popup__input_type_name').value;
-    document.querySelector('.profile__job').textContent = document.querySelector('.popup__input_type_aboutMy').value;
-    popup.classList.remove('popup_opened');
 }
 
 function closeEditForm() {
     popup.classList.remove('popup_opened');
 }
 
-const closeEditFormByClickOnOverlay = function(event) {
-    
-    if(event.target !== event.currentTarget) {
+const closeEditFormByClickOnOverlay = function (event) {
+
+    if (event.target !== event.currentTarget)
         return;
-    }
+
     closeEditForm();
 }
 
+const saveEditForm = function (event) {
+    event.preventDefault();
+
+    profileName.textContent = editName.value;
+    profileJob.textContent = editJob.value;
+    popup.classList.remove('popup_opened');
+}
+
 popup.addEventListener('click', closeEditFormByClickOnOverlay);
+formEditProfil.addEventListener('submit', saveEditForm);
 
 
