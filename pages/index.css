@@ -16,6 +16,7 @@
 @import url(../blocks/profile/__bnt/_action/profile__bnt_action_edit.css);
 @import url(../blocks/elements/elements.css);
 @import url(../blocks/elements/__list/elements__list.css);
+@import url(../blocks/elements/__card/elements__card.css);
 @import url(../blocks/card/card.css);
 @import url(../blocks/card/__image/card__image.css);
 @import url(../blocks/card/__bar/card__bar.css);
