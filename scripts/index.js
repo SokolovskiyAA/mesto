@@ -8,6 +8,35 @@ const profileJob = document.querySelector('.profile__job');
 const editName = document.querySelector('.popup__input_type_name');
 const editJob = document.querySelector('.popup__input_type_aboutMy');
 const formEditProfil = popup.querySelector('.popup__form');
+const newCardTemplate = document.querySelector('#new_card').content;
+const listCards = document.querySelector('.elements__list');
+
+const initialCards = [
+    {
+        name: 'bmw e39',
+        link: './images/bmw_e39.jpg'
+    },
+    {
+        name: 'bmw e39 touring',
+        link: './images/bmw_e39_turing.jpg'
+    },
+    {
+        name: 'двигатель s62',
+        link: './images/s62.jpg'
+    },
+    {
+        name: 'Котик в лаванде. Все любят котиков',
+        link: './images/Котик.jpg'
+    },
+    {
+        name: 'Озеро',
+        link: './images/Озеро.jpg'
+    },
+    {
+        name: 'Пейзаж',
+        link: './images/пейзаж.jpg'
+    }
+];
 
 editButton.addEventListener('click', editProfile);
 
@@ -38,6 +67,23 @@ const saveEditForm = function (event) {
     profileJob.textContent = editJob.value;
     popup.classList.remove('popup_opened');
 }
+
+const createNewCard = function(item) {
+    newCard = newCardTemplate.querySelector('.card').cloneNode(true);
+    newCard.querySelector('.card__image').src = item.link;
+    newCard.querySelector('.card__title').textContent = item.name;
+
+    listCards.prepend(newCard);
+}
+
+initialCards.forEach((item) => {
+    createNewCard(item);
+    // newCard = newCardTemplate.querySelector('.card').cloneNode(true);
+    // newCard.querySelector('.card__image').src = item.link;
+    // newCard.querySelector('.card__title').textContent = item.name;
+
+    // listCards.append(newCard);
+});
 
 popup.addEventListener('click', closeEditFormByClickOnOverlay);
 

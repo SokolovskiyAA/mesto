@@ -1,8 +1,8 @@
-.card__like {
+.card__bnt_action_like {
     width: 22px;
     height: 19px;
     border: 0;
-    background-image: url(../../../images/like.svg);
+    background-image: url(../../../../images/like.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-size: 22px 19px;
@@ -12,7 +12,7 @@
     background-color: #fff;
 }
 
-.card__like:hover {
+.card__bnt_action_like:hover {
     cursor: pointer;
     opacity: 0.5;
 }
