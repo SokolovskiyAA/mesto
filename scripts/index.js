@@ -89,7 +89,7 @@ function popupOpened (popup) {
     popup.classList.add('popup_opened');
 }
 
-function closeEditForm(popup) {
+function closePopup(popup) {
     popup.classList.remove('popup_opened');
 }
 
@@ -98,7 +98,7 @@ const closeEditFormByClickOnOverlay = function (event) {
     if (event.target !== event.currentTarget)
         return;
 
-    closeEditForm(event.target);
+        closePopup(event.target);
 }
 
 const saveEditForm = function (event) {
@@ -106,7 +106,7 @@ const saveEditForm = function (event) {
 
     profileName.textContent = editName.value;
     profileJob.textContent = editJob.value;
-    closeEditForm(popupEdit);
+    closePopup(popupEdit);
     //popupEdit.classList.remove('popup_opened');
 }
 
@@ -121,7 +121,7 @@ const saveAddForm = function (event) {
     ];
 
     createNewCard(addItem[0]);
-    closeEditForm(popupAddCard);
+    closePopup(popupAddCard);
 }
 
 function createNewCard(item) {
