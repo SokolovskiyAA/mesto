@@ -38,3 +38,7 @@
 @import url(../blocks/popup/__bnt/_action/popup__bnt_action_close.css);
 @import url(../blocks/popup/__bnt/_action/popup__bnt_action_save.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
+@import url(../blocks/popup/__foto/popup__foto.css);
+@import url(../blocks/popup/__figure/popup__figure.css);
+@import url(../blocks/popup/__foto-title/popup__foto-title.css);
+@import url(../blocks/popup/__foto-card/popup__foto-card.css);

@@ -29,49 +29,7 @@
 
       <section class="elements">
         <ul class="elements__list">
-          <!-- <li class="elements__card card">
-            <button class="card__bnt card__bnt_action_del"></button>
-            <img class="card__image" src="./images/bmw_e39.jpg" alt="бмв е39" />
-            <div class="card__bar">
-              <h2 class="card__title">bmw e39</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li>
-          <li class="elements__card card">
-            <img class="card__image" src="images/bmw_e39_turing.jpg" alt="бмв е39 туринг" />
-            <div class="card__bar">
-              <h2 class="card__title">bmw e39 touring</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li>
-          <li class="elements__card card">
-            <img class="card__image" src="./images/s62.jpg" alt="двигатель с62" />
-            <div class="card__bar">
-              <h2 class="card__title">двигатель s62</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li>
-          <li class="elements__card card">
-            <img class="card__image" src="./images/Котик.jpg" alt="Котик в лаванде. Все любят котиков" />
-            <div class="card__bar">
-              <h2 class="card__title">Котик в лаванде. Все любят котиков</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li>
-          <li class="elements__card card">
-            <img class="card__image" src="./images/Озеро.jpg" alt="Озеро" />
-            <div class="card__bar">
-              <h2 class="card__title">Озеро</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li>
-          <li class="elements__card card">
-            <img class="card__image" src="./images/пейзаж.jpg" alt="Пейзаж" />
-            <div class="card__bar">
-              <h2 class="card__title">Пейзаж</h2>
-              <button class="card__bnt card__bnt_action_like"></button>
-            </div>
-          </li> -->
+          
         </ul>
       </section>
     </main>
@@ -81,14 +39,36 @@
     </footer>
   </div>
 
-  <div class="popup" id="popup_Edit">
+  <div class="popup popup-edit">
     <div class="popup__container">
-      <form class="popup__form" name="submit">
+      <form class="popup__form" name="editProfil">
         <h2 class="popup__title">Редактировать профиль</h2>
         <input type="text" placeholder="Имя" class="popup__input popup__input_type_name" />
         <input type="text" placeholder="О себе" class="popup__input popup__input_type_aboutMy" />
         <button class="popup__bnt popup__bnt_action_save">Сохранить</button>
       </form>
+      <button class="popup__bnt popup__bnt_action_close"></button>
+    </div>
+  </div>
+
+  <div class="popup popup-addFoto">
+    <div class="popup__container">
+      <form class="popup__form" name="addFoto">
+        <h2 class="popup__title">Новое место</h2>
+        <input type="text" placeholder="Название" class="popup__input popup__input_type_name" />
+        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_aboutMy" />
+        <button class="popup__bnt popup__bnt_action_save">Сохранить</button>
+      </form>
+      <button class="popup__bnt popup__bnt_action_close"></button>
+    </div>
+  </div>
+
+  <div class="popup popup-openFoto">
+    <div class="popup__foto-card">
+      <figure class="popup__figure">
+        <img class="popup__foto" src="#" alt="">
+        <figcaption class="popup__foto-title"></figcaption>
+      </figure>
       <button class="popup__bnt popup__bnt_action_close"></button>
     </div>
   </div>
