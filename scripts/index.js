@@ -155,7 +155,7 @@ function renderNewCard(cardItem) {
 const saveAddForm = function (event) {
     event.preventDefault();
     renderNewCard({ name: newCardName.value, link: newCardLink.value });
-    popupClosed(popupAddCard);
+    closedPopup(popupAddCard);
 }
 
 initialCards.forEach((item) => {
