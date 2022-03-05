@@ -93,21 +93,21 @@ const closeEditFormByClickOnEsc = function (event) {
     closedPopup(currentOpenPopup);
 }
 
-function openedPopup (popup) {
+function openedPopup(popup) {
     popup.classList.add('popup_opened');
     document.addEventListener('keydown', closeEditFormByClickOnEsc);
 
     enableValidation({
         formSelector: popup.querySelector('.popup__form'),
         inputSelector: '.popup__input',
-        submitButtonSelector: '.popup__button',
-        inactiveButtonClass: 'popup__button_disabled',
+        submitButtonSelector: '.popup__bnt',
         inputErrorClass: 'popup__input_type_error',
-        errorClass: 'popup__error_visible'
-      });
+        errorClass: '.popup__input-error',
+        errorClassActiv: 'popup__input-error_active'
+    });
 }
 
-function closedPopup (popup) {
+function closedPopup(popup) {
     popup.classList.remove('popup_opened');
     document.removeEventListener('keydown', closeEditFormByClickOnEsc);
 }
@@ -154,7 +154,7 @@ function renderNewCard(cardItem) {
 
 const saveAddForm = function (event) {
     event.preventDefault();
-    renderNewCard({name: newCardName.value, link: newCardLink.value});
+    renderNewCard({ name: newCardName.value, link: newCardLink.value });
     popupClosed(popupAddCard);
 }
 
