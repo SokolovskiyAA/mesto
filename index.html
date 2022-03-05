@@ -29,7 +29,7 @@
 
       <section class="elements">
         <ul class="elements__list">
-          
+
         </ul>
       </section>
     </main>
@@ -41,10 +41,16 @@
 
   <div class="popup popup_editProfile">
     <div class="popup__container">
-      <form class="popup__form" name="editProfil">
+      <form class="popup__form" name="editProfil" novalidate>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input type="text" placeholder="Имя" class="popup__input popup__input_type_name" />
-        <input type="text" placeholder="О себе" class="popup__input popup__input_type_aboutMy" />
+        <label class="popup__label">
+          <input type="text" placeholder="Имя" class="popup__input popup__input_type_name" minlength="2" maxlength="40" required>
+          <span class="popup__input-error">Ошибка</span>
+        </label>
+        <label class="popup__label">
+          <input type="text" placeholder="О себе" class="popup__input popup__input_type_aboutMy" minlength="2" maxlength="200" required>
+          <span class="popup__input-error">Ошибка</span>
+        </label>
         <button class="popup__bnt popup__bnt_action_save">Сохранить</button>
       </form>
       <button class="popup__bnt popup__bnt_action_close"></button>
@@ -53,10 +59,17 @@
 
   <div class="popup popup_addFoto">
     <div class="popup__container">
-      <form class="popup__form" name="addFoto">
+      <form class="popup__form" name="addFoto" novalidate>
         <h2 class="popup__title">Новое место</h2>
-        <input type="text" placeholder="Название" class="popup__input popup__input_type_name" />
-        <input type="text" placeholder="Ссылка на картинку" class="popup__input popup__input_type_aboutMy" />
+        <label class="popup__label">
+          <input type="text" placeholder="Название" class="popup__input popup__input_type_name" minlength="2"
+            maxlength="30" required>
+          <span class="popup__input-error">Ошибка</span>
+        </label>
+        <label class="popup__label">
+          <input type="url" placeholder="Ссылка на картинку" class="popup__input popup__input_type_aboutMy" required>
+          <span class="popup__input-error">Ошибка</span>
+        </label>
         <button class="popup__bnt popup__bnt_action_save">Сохранить</button>
       </form>
       <button class="popup__bnt popup__bnt_action_close"></button>
@@ -74,7 +87,7 @@
   </div>
 
   <template id="new_card">
-    <li class="elements__card card">      
+    <li class="elements__card card">
       <img class="card__image" src="#" alt="" />
       <div class="card__bar">
         <h2 class="card__title"></h2>
@@ -85,6 +98,7 @@
   </template>
 
   <script src="./scripts/index.js"></script>
+  <script src="./scripts/validate.js"></script>
 </body>
 
 </html>

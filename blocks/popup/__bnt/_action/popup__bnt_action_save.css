@@ -13,6 +13,13 @@
     opacity: 0.8;
 }
 
+.popup__bnt_action_save:disabled {
+    background-color: #fff;
+    border: 1px solid #000;
+    color: #000;
+    opacity: .2;
+}
+
 @media screen and (max-width: 450px) {
     .popup__bnt_action_save {
         width: 238px;

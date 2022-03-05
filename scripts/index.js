@@ -25,6 +25,7 @@ const popupFotoCloseButton = popupOpenFoto.querySelector('.popup__bnt_action_clo
 
 
 
+
 const initialCards = [
     {
         name: 'bmw e39',
@@ -54,21 +55,21 @@ const initialCards = [
 
 buttonEditProfil.addEventListener('click', editProfile);
 buttonCloseProfil.addEventListener('click', () => {
-    popupClosed(popupEditProfil);
+    closedPopup(popupEditProfil);
 });
 
 buttonAddCard.addEventListener('click', openPopupAdd);
 buttonCloseCard.addEventListener('click', () => {
-    popupClosed(popupAddCard);
+    closedPopup(popupAddCard);
 });
 
 popupFotoCloseButton.addEventListener('click', () => {
-    popupClosed(popupOpenFoto);
+    closedPopup(popupOpenFoto);
 });
 
 function openPopupAdd() {
     formAddCard.reset();
-    popupOpened(popupAddCard);
+    openedPopup(popupAddCard);
 }
 
 function openPopupFoto(fotoItem) {
@@ -76,29 +77,46 @@ function openPopupFoto(fotoItem) {
     popupFotoImg.src = fotoItem.src;
     popupFotoImg.alt = nameFoto;
     popupFotoTitle.textContent = nameFoto;
-    popupOpened(popupOpenFoto);
+    openedPopup(popupOpenFoto);
 }
 
 function editProfile() {
     nameProfil.value = profileName.textContent;
     jobProfil.value = profileJob.textContent;
-    popupOpened(popupEditProfil);
+    openedPopup(popupEditProfil);
 }
 
-function popupOpened (popup) {
+const closeEditFormByClickOnEsc = function (event) {
+    if (event.key !== 'Escape')
+        return;
+    const currentOpenPopup = document.querySelector('.popup_opened');
+    closedPopup(currentOpenPopup);
+}
+
+function openedPopup (popup) {
     popup.classList.add('popup_opened');
+    document.addEventListener('keydown', closeEditFormByClickOnEsc);
+
+    enableValidation({
+        formSelector: popup.querySelector('.popup__form'),
+        inputSelector: '.popup__input',
+        submitButtonSelector: '.popup__button',
+        inactiveButtonClass: 'popup__button_disabled',
+        inputErrorClass: 'popup__input_type_error',
+        errorClass: 'popup__error_visible'
+      });
 }
 
-function popupClosed (popup) {
+function closedPopup (popup) {
     popup.classList.remove('popup_opened');
+    document.removeEventListener('keydown', closeEditFormByClickOnEsc);
 }
 
 const closeEditFormByClickOnOverlay = function (event) {
-
     if (event.target !== event.currentTarget)
         return;
 
-        popupClosed(event.target);
+    closedPopup(event.target);
 }
 
 const saveEditForm = function (event) {
@@ -106,8 +124,7 @@ const saveEditForm = function (event) {
 
     profileName.textContent = nameProfil.value;
     profileJob.textContent = jobProfil.value;
-    popupClosed(popupEditProfil);
-    //popupEditProfil.classList.remove('popup_opened');
+    closedPopup(popupEditProfil);
 }
 
 function createNewCard(item) {
