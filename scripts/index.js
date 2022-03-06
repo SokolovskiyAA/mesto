@@ -103,7 +103,8 @@ function openedPopup(popup) {
         submitButtonSelector: '.popup__bnt',
         inputErrorClass: 'popup__input_type_error',
         errorClass: '.popup__input-error',
-        errorClassActiv: 'popup__input-error_active'
+        errorClassActiv: 'popup__input-error_active',
+        popupLabel: '.popup__label'
     });
 }
 
@@ -127,23 +128,28 @@ const saveEditForm = function (event) {
     closedPopup(popupEditProfil);
 }
 
+const setEventDeleteCard = (evt) => {
+    evt.target.closest('.card').remove();
+};
+
+const setEventLikeCard = (evt) => {
+    evt.target.classList.toggle('card__bnt_clik_like');
+};
+
+const setEventOpenImage = (evt) => {
+    openPopupFoto(evt.target);
+};
+
 function createNewCard(item) {
     newCard = newCardTemplate.cloneNode(true);
-    newCard.querySelector('.card__image').src = item.link;
-    newCard.querySelector('.card__image').alt = item.name;
+    const cardImage = newCard.querySelector('.card__image');
+    cardImage.src = item.link;
+    cardImage.alt = item.name;
     newCard.querySelector('.card__title').textContent = item.name;
 
-    newCard.querySelector('.card__bnt_action_del').addEventListener('click', (event) => {
-        event.target.closest('.card').remove();
-    });
-
-    newCard.querySelector('.card__bnt_action_like').addEventListener('click', (event) => {
-        event.target.classList.toggle('card__bnt_clik_like');
-    });
-
-    newCard.querySelector('.card__image').addEventListener('click', (event) => {
-        openPopupFoto(event.target);
-    });
+    newCard.querySelector('.card__bnt_action_del').addEventListener('click', setEventDeleteCard);
+    newCard.querySelector('.card__bnt_action_like').addEventListener('click', setEventLikeCard);
+    newCard.querySelector('.card__image').addEventListener('click', setEventOpenImage);
 
     return newCard
 }

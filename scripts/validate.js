@@ -1,15 +1,13 @@
 
 const showInputError = (formSettings, inputElement, errorMessage) => {
-  const errorElement = inputElement.closest('.popup__label').querySelector(formSettings.errorClass);
+  const errorElement = inputElement.closest(formSettings.popupLabel).querySelector(formSettings.errorClass);
   inputElement.classList.add(formSettings.inputErrorClass);
   errorElement.textContent = errorMessage;
-  errorElement.classList.add(formSettings.errorClassActiv);
 };
 
 const hideInputError = (formSettings, inputElement) => {
-  const errorElement = inputElement.closest('.popup__label').querySelector(formSettings.errorClass);
+  const errorElement = inputElement.closest(formSettings.popupLabel).querySelector(formSettings.errorClass);
   inputElement.classList.remove(formSettings.inputErrorClass);
-  errorElement.classList.remove(formSettings.errorClassActiv);
   errorElement.textContent = '';
 };
 
