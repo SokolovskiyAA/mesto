@@ -1,6 +1,3 @@
-const popupOpenFoto = document.querySelector('.popup_openFoto');
-const popupFotoImg = popupOpenFoto.querySelector('.popup__foto');
-const popupFotoTitle = popupOpenFoto.querySelector('.popup__foto-title');
 
 export default class Card {
     constructor(item, cardTemplate, openedPopup) {
@@ -28,23 +25,17 @@ export default class Card {
     }
 
     _setEventListeners() {
+        this._likeButton = this._element.querySelector('.card__bnt_action_like');
         this._element.querySelector('.card__bnt_action_like').addEventListener('click', () => this._setEventLikeCard());
         this._element.querySelector('.card__bnt_action_del').addEventListener('click', () => this._setEventDeleteCard());
-        this._element.querySelector('.card__image').addEventListener('click', () => this._setEventOpenImage());
+        this._element.querySelector('.card__image').addEventListener('click', () => this._openedPopup(this._link, this._name));
     }
 
     _setEventLikeCard() {
-        this._element.querySelector('.card__bnt_action_like').classList.toggle('card__bnt_clik_like');
+        this._likeButton.classList.toggle('card__bnt_clik_like');
     }
 
     _setEventDeleteCard() {
         this._element.remove();
     }
-
-    _setEventOpenImage() {
-        popupFotoImg.src = this._link;
-        popupFotoTitle.textContent = this._name;
-        this._openedPopup(popupOpenFoto);
-    }
-
 }

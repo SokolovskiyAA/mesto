@@ -11,12 +11,15 @@ export default class FormValidator {
         this._popupLabel = itemValidateForm.popupLabel;
     }
 
-    validateForm() {
+    enableValidation() {
         this._inputList = Array.from(this._formSelector.querySelectorAll(this._inputSelector));
         this._buttonElement = this._formSelector.querySelector(this._submitButtonSelector);
 
         this._toggleButtonState();
+        this.__setEventListeners();
+    }
 
+    __setEventListeners() {
         this._inputList.forEach((inputElement) => {
             this._hideInputError(inputElement);
             inputElement.addEventListener('input', () => {
@@ -59,5 +62,13 @@ export default class FormValidator {
         const errorElement = inputElement.closest(this._popupLabel).querySelector(this._errorClass);
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.textContent = '';
+    }
+
+    resetValidation() {
+        this._toggleButtonState();
+
+        this._inputList.forEach((inputElement) => {
+            this._hideInputError(inputElement);
+          });
     }
 }
