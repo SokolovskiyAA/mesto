@@ -13,11 +13,11 @@ export default class Popup {
     }
 
     close() {
-        if(this._popupElement) {
+        if (this._popupElement) {
             this._popupElement.classList.remove('popup_opened');
             this._popupElement.removeEventListener('mousedown', this._handleClickClose);
             document.removeEventListener('keydown', this._handleEscClose);
-        }            
+        }
     }
 
     _handleEscClose(evt) {
@@ -27,13 +27,7 @@ export default class Popup {
 
     _handleClickClose(evt) {
         if (evt.target.classList.contains('popup__bnt_action_close') || evt.target.classList.contains('popup')) {
-          this.close();
+            this.close();
         }
-      }
-
-    setEventListeners() {
-        this._popupElement.addEventListener('mousedown', this._handleClickClose);
-        document.addEventListener('keydown', this._handleEscClose);
     }
-
 }

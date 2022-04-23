@@ -49,8 +49,10 @@ const popupWithAddForm = new PopupWithForm(popupSelectors.createCard, {
     }
 });
 
+popupWithEditForm.setEventListeners();
+popupWithAddForm.setEventListeners();
+
 const imagePopup = new PopupWithImage(popupSelectors.viewCard, imageData);
-imagePopup.setEventListeners();
 
 const initCardList = new Section({
     items: initialCards,
@@ -76,13 +78,11 @@ buttonEditProfil.addEventListener('click', () => {
     const userDate = userInfo.getUserInfo();
     nameProfil.value = userDate.name;
     jobProfil.value = userDate.info;
-    popupWithEditForm.open(userDate);
-    popupWithEditForm.setEventListeners();
     formEditProfilValidation.resetValidation();
+    popupWithEditForm.open();
 });
 
 buttonAddCard.addEventListener('click', () => {
-    popupWithAddForm.open();
-    popupWithAddForm.setEventListeners();
     formAddCardValidation.resetValidation();
+    popupWithAddForm.open();
 });
