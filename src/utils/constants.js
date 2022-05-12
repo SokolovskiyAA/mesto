@@ -12,6 +12,8 @@ export const popupSelectors = {
     viewCard: '.popup_openFoto',
     createCard: '.popup_addFoto',
     editProfile: '.popup_editProfile',
+    editAvatar: '.popup_editAvatar',
+    deleteCard: '.popup_delete-image'
 };
 
 export const imageData = {
@@ -22,6 +24,7 @@ export const imageData = {
 export const profileData = {
     nameSelector: '.profile__name',
     infoSelector: '.profile__job',
+    avatarSelector: '.profile__image'
 };
 
 export const initialCards = [
